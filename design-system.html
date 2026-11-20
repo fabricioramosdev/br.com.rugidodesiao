@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html class="bg-[#050505] scroll-smooth" lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>IPRS · Design System</title>
+
+<link rel="stylesheet" href="assets/css/fonts.css"/>
+<link rel="stylesheet" href="assets/css/tailwind-generated.css"/>
+<link rel="stylesheet" href="assets/css/components.css"/>
+<script src="assets/js/tailwind.js"></script>
+<script src="assets/js/iconify.min.js"></script>
+<script src="assets/js/tailwind-config.js"></script>
+
+<style>
+  /* ── DS overrides ── */
+  .ds-section { border-top: 1px solid #27272a; padding: 64px 48px; }
+  .ds-label   { font-family: 'JetBrains Mono', monospace; font-size: 9px; text-transform: uppercase;
+                letter-spacing: .3em; color: #ea580c; margin-bottom: 8px; }
+  .ds-title   { font-size: 24px; font-weight: 500; color: #fff; text-transform: uppercase;
+                letter-spacing: -.02em; margin-bottom: 32px; }
+  .ds-row     { display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-start; }
+  .ds-chip    { font-family: 'JetBrains Mono', monospace; font-size: 10px; border: 1px solid #27272a;
+                padding: 4px 10px; color: #a1a1aa; }
+</style>
+</head>
+<body class="text-zinc-400 min-h-screen selection:bg-orange-600 selection:text-white">
+
+<!-- fixed bg grid -->
+<div class="fixed inset-0 pointer-events-none z-0 opacity-[0.03] bg-grid"></div>
+
+<!-- ══════════════════════════════════════════════════════
+     TOP BAR
+═══════════════════════════════════════════════════════ -->
+<header class="sticky top-0 z-50 h-14 bg-[#050505]/95 backdrop-blur-sm border-b border-zinc-800 flex items-center px-8 gap-6">
+  <img alt="IPRS" class="h-7 w-auto drop-shadow-[0_0_10px_rgba(234,88,12,0.5)]" src="images/logo/logo.png"/>
+  <div class="flex items-center gap-2">
+    <span class="w-1.5 h-1.5 bg-orange-500 rounded-full animate-pulse"></span>
+    <span class="text-[10px] font-mono text-zinc-500 uppercase tracking-widest">IPRS · Design System v1.0</span>
+  </div>
+  <nav class="ml-auto hidden md:flex gap-6 text-[10px] font-mono uppercase tracking-widest">
+    <a class="text-zinc-500 hover:text-white transition-colors" href="#tokens">Tokens</a>
+    <a class="text-zinc-500 hover:text-white transition-colors" href="#typography">Tipografia</a>
+    <a class="text-zinc-500 hover:text-white transition-colors" href="#components">Componentes</a>
+    <a class="text-zinc-500 hover:text-white transition-colors" href="#layout">Layout</a>
+    <a class="text-zinc-500 hover:text-white transition-colors" href="#images">Imagens</a>
+    <a class="text-zinc-500 hover:text-white transition-colors" href="#motion">Motion</a>
+  </nav>
+</header>
+
+<!-- ══════════════════════════════════════════════════════
+     HERO DO DS
+═══════════════════════════════════════════════════════ -->
+<div class="relative border-b border-zinc-800 py-24 px-12 overflow-hidden">
+  <div class="absolute inset-0 bg-cover bg-center opacity-10 mix-blend-luminosity" style="background-image: url('images/hero/hero-lion.jpg')"></div>
+  <div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#050505] pointer-events-none"></div>
+  <div class="relative z-10 max-w-3xl">
+    <p class="ds-label">// Design System</p>
+    <h1 class="text-5xl md:text-7xl font-medium text-white uppercase tracking-tight leading-[0.9] mb-6">
+      Igreja Profética<br/>
+      <span class="text-zinc-600">Rugido de Sião</span>
+    </h1>
+    <p class="text-sm font-mono text-zinc-500 max-w-lg leading-relaxed border-l-2 border-orange-600 pl-4">
+      Este arquivo documenta os tokens de design, componentes, padrões de layout e regras de motion
+      usados no site da IPRS. Use como referência ao criar novas páginas ou componentes.
+    </p>
+    <div class="flex flex-wrap gap-3 mt-8">
+      <span class="ds-chip">Tailwind CSS</span>
+      <span class="ds-chip">Inter + JetBrains Mono</span>
+      <span class="ds-chip">Iconify — Solar Set</span>
+      <span class="ds-chip">bg-[#050505]</span>
+      <span class="ds-chip">orange-600 accent</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     01. TOKENS — COR
+═══════════════════════════════════════════════════════ -->
+<section class="ds-section" id="tokens">
+  <p class="ds-label">01 // Tokens</p>
+  <h2 class="ds-title">Paleta de Cores</h2>
+
+  <!-- backgrounds -->
+  <p class="text-[10px] font-mono text-zinc-600 uppercase tracking-widest mb-4">Backgrounds</p>
+  <div class="ds-row mb-10">
+    <div class="flex flex-col gap-2">
+      <div class="w-32 h-16 bg-[#050505] border border-zinc-800"></div>
+      <span class="text-[9px] font-mono text-zinc-500">#050505<br/>bg-[#050505]<br/>Body / Seções</span>
+    </div>
+    <div class="flex flex-col gap-2">
+      <div class="w-32 h-16 bg-[#080808] border border-zinc-800"></div>
+      <span class="text-[9px] font-mono text-zinc-500">#080808<br/>bg-[#080808]<br/>Cards elevados</span>
+    </div>
+    <div class="flex flex-col gap-2">
+      <div class="w-32 h-16 bg-zinc-900 border border-zinc-800"></div>
+      <span class="text-[9px] font-mono text-zinc-500">zinc-900<br/>bg-zinc-900<br/>Inputs / tags</span>
+    </div>
+    <div class="flex flex-col gap-2">
+      <div class="w-32 h-16 bg-zinc-900/30 border border-zinc-800"></div>
+      <span class="text-[9px] font-mono text-zinc-500">zinc-900/30<br/>Hover leve</span>
+    </div>
+  </div>
+
+  <!-- texto -->
+  <p class="text-[10px] font-mono text-zinc-600 uppercase tracking-widest mb-4">Texto</p>
+  <div class="ds-row mb-10">
+    <div class="flex flex-col gap-2"><div class="w-32 h-10 flex items-center"><span class="text-white text-lg font-medium">Aa</span></div><span class="text-[9px] font-mono text-zinc-500">text-white<br/>Títulos / destaque</span></div>
+    <div class="flex flex-col gap-2"><div class="w-32 h-10 flex items-center"><span class="text-zinc-300 text-lg">Aa</span></div><span class="text-[9px] font-mono text-zinc-500">text-zinc-300<br/>Corpo claro</span></div>
+    <div class="flex flex-col gap-2"><div class="w-32 h-10 flex items-center"><span class="text-zinc-400 text-lg">Aa</span></div><span class="text-[9px] font-mono text-zinc-500">text-zinc-400<br/>Corpo padrão</span></div>
+    <div class="flex flex-col gap-2"><div class="w-32 h-10 flex items-center"><span class="text-zinc-500 text-lg">Aa</span></div><span class="text-[9px] font-mono text-zinc-500">text-zinc-500<br/>Subtexto / mono</span></div>
+    <div class="flex flex-col gap-2"><div class="w-32 h-10 flex items-center"><span class="text-zinc-600 text-lg">Aa</span></div><span class="text-[9px] font-mono text-zinc-500">text-zinc-600<br/>Mudo / decorativo</span></div>
+  </div>
+
+  <!-- accent -->
+  <p class="text-[10px] font-mono text-zinc-600 uppercase tracking-widest mb-4">Accent — Orange</p>
+  <div class="ds-row mb-10">
+    <div class="flex flex-col gap-2"><div class="w-32 h-10 bg-orange-600"></div><span class="text-[9px] font-mono text-zinc-500">orange-600 #ea580c<br/>CTA / badge / glow</span></div>
+    <div class="flex flex-col gap-2"><div class="w-32 h-10 bg-orange-500"></div><span class="text-[9px] font-mono text-zinc-500">orange-500<br/>Hover state</span></div>
+    <div class="flex flex-col gap-2"><div class="w-32 h-10 bg-orange-600/20 border border-orange-600/30"></div><span class="text-[9px] font-mono text-zinc-500">orange-600/20<br/>Glow bg / badge bg</span></div>
+    <div class="flex flex-col gap-2"><div class="w-32 h-10 flex items-center"><span class="text-orange-600 text-lg font-mono">Aa</span></div><span class="text-[9px] font-mono text-zinc-500">text-orange-600<br/>Labels / links</span></div>
+    <div class="flex flex-col gap-2"><div class="w-32 h-10 flex items-center"><span class="text-orange-500 text-lg font-mono">Aa</span></div><span class="text-[9px] font-mono text-zinc-500">text-orange-500<br/>Status / realce</span></div>
+  </div>
+
+  <!-- bordas -->
+  <p class="text-[10px] font-mono text-zinc-600 uppercase tracking-widest mb-4">Bordas</p>
+  <div class="ds-row">
+    <div class="flex flex-col gap-2"><div class="w-32 h-10 border border-zinc-800"></div><span class="text-[9px] font-mono text-zinc-500">border-zinc-800<br/>Padrão</span></div>
+    <div class="flex flex-col gap-2"><div class="w-32 h-10 border border-zinc-700"></div><span class="text-[9px] font-mono text-zinc-500">border-zinc-700<br/>Hover / elevado</span></div>
+    <div class="flex flex-col gap-2"><div class="w-32 h-10 border border-orange-600"></div><span class="text-[9px] font-mono text-zinc-500">border-orange-600<br/>Ativo / foco</span></div>
+    <div class="flex flex-col gap-2"><div class="w-32 h-10 border border-orange-600/50"></div><span class="text-[9px] font-mono text-zinc-500">border-orange-600/50<br/>Hover de card</span></div>
+    <div class="flex flex-col gap-2"><div class="w-32 h-10 border-l-2 border-l-orange-600 border-t border-r border-b border-zinc-800 pl-3 flex items-center"><span class="text-[10px] font-mono text-zinc-400">Pilar</span></div><span class="text-[9px] font-mono text-zinc-500">border-l-2 border-l-orange-600<br/>Destaque lateral</span></div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     02. TIPOGRAFIA
+═══════════════════════════════════════════════════════ -->
+<section class="ds-section" id="typography">
+  <p class="ds-label">02 // Tipografia</p>
+  <h2 class="ds-title">Fontes & Escala</h2>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-16">
+    <div>
+      <p class="text-[10px] font-mono text-zinc-600 uppercase tracking-widest mb-6">Sans — Inter (body)</p>
+      <div class="space-y-4">
+        <div class="border-b border-zinc-800 pb-4"><p class="text-4xl font-medium text-white">Rugido de Sião</p><span class="text-[9px] font-mono text-zinc-600">text-4xl font-medium text-white</span></div>
+        <div class="border-b border-zinc-800 pb-4"><p class="text-2xl text-white">Culto Profético</p><span class="text-[9px] font-mono text-zinc-600">text-2xl text-white</span></div>
+        <div class="border-b border-zinc-800 pb-4"><p class="text-lg text-zinc-300">Pilares da Casa</p><span class="text-[9px] font-mono text-zinc-600">text-lg text-zinc-300</span></div>
+        <div class="border-b border-zinc-800 pb-4"><p class="text-base text-zinc-400">O rugido que desperta, a presença que transforma.</p><span class="text-[9px] font-mono text-zinc-600">text-base text-zinc-400</span></div>
+        <div class="border-b border-zinc-800 pb-4"><p class="text-sm text-zinc-500 leading-relaxed">Buscamos a presença manifesta de Deus — o lugar onde o céu toca a terra e o povo é transformado.</p><span class="text-[9px] font-mono text-zinc-600">text-sm text-zinc-500 leading-relaxed</span></div>
+        <div><p class="text-xs text-zinc-600">Joel 3:16 // Ap 5:5 · Igreja Profética</p><span class="text-[9px] font-mono text-zinc-600">text-xs text-zinc-600</span></div>
+      </div>
+    </div>
+    <div>
+      <p class="text-[10px] font-mono text-zinc-600 uppercase tracking-widest mb-6">Mono — JetBrains Mono (labels/status)</p>
+      <div class="space-y-4">
+        <div class="border-b border-zinc-800 pb-4"><p class="font-mono text-sm text-orange-600 uppercase tracking-widest">// Pilares_da_Casa</p><span class="text-[9px] font-mono text-zinc-600">font-mono text-sm text-orange-600 uppercase tracking-widest</span></div>
+        <div class="border-b border-zinc-800 pb-4"><p class="font-mono text-xs text-zinc-400 uppercase tracking-widest">JOEL 3:16 // AP 5:5</p><span class="text-[9px] font-mono text-zinc-600">font-mono text-xs uppercase tracking-widest</span></div>
+        <div class="border-b border-zinc-800 pb-4"><p class="font-mono text-[10px] text-zinc-500 uppercase tracking-widest">PIL. 01 · Presença</p><span class="text-[9px] font-mono text-zinc-600">font-mono text-[10px] uppercase tracking-widest</span></div>
+        <div class="border-b border-zinc-800 pb-4"><p class="font-mono text-[9px] text-zinc-600 uppercase tracking-widest">RUGIDO_ATIVO</p><span class="text-[9px] font-mono text-zinc-600">font-mono text-[9px] uppercase tracking-widest</span></div>
+        <div><p class="font-mono text-[8px] text-zinc-700 uppercase tracking-widest">IPRS_v1.0</p><span class="text-[9px] font-mono text-zinc-600">font-mono text-[8px] uppercase tracking-widest</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- heading hero -->
+  <p class="text-[10px] font-mono text-zinc-600 uppercase tracking-widest mb-6">Heading Hero — display uppercase</p>
+  <div class="border border-zinc-800 bg-[#080808] p-10 mb-4">
+    <h1 class="text-5xl md:text-7xl font-medium text-white uppercase tracking-tight leading-[0.9] cursor-default">
+      <span class="block">Rugido</span>
+      <span class="text-zinc-600 block">de Sião</span>
+    </h1>
+  </div>
+  <span class="text-[9px] font-mono text-zinc-600">text-5xl md:text-7xl font-medium text-white uppercase tracking-tight leading-[0.9]<br/>2ª linha: text-zinc-600</span>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     03. COMPONENTES
+═══════════════════════════════════════════════════════ -->
+<section class="ds-section" id="components">
+  <p class="ds-label">03 // Componentes</p>
+  <h2 class="ds-title">UI Components</h2>
+
+  <!-- STATUS BADGE -->
+  <p class="text-[10px] font-mono text-zinc-600 uppercase tracking-widest mb-4">Status Badge</p>
+  <div class="ds-row mb-12">
+    <div class="inline-flex items-center gap-2 px-3 py-1 border border-zinc-800 bg-zinc-900/30 backdrop-blur-sm rounded-sm">
+      <span class="text-[10px] font-mono text-zinc-600 leading-none">[</span>
+      <span class="relative flex h-1.5 w-1.5"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-500 opacity-75"></span><span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-orange-500"></span></span>
+      <span class="text-[9px] font-mono text-zinc-500 uppercase tracking-widest">RUGIDO: ATIVO</span>
+      <span class="text-[10px] font-mono text-zinc-600 leading-none">]</span>
+    </div>
+    <div class="inline-flex items-center px-2 py-1 bg-orange-600/10 border border-orange-600/20 text-orange-600 text-[9px] font-mono uppercase tracking-widest rounded-full">Destaque</div>
+    <div class="inline-flex items-center px-2 py-1 bg-zinc-900 border border-zinc-800 text-[10px] font-mono text-orange-500 rounded-sm">PRESENÇA MANIFESTA</div>
+    <div class="inline-flex items-center px-2 py-1 bg-zinc-900 border border-zinc-800 text-[10px] font-mono text-zinc-500 rounded-sm">PIL. 01</div>
+  </div>
+
+  <!-- BOTÕES -->
+  <p class="text-[10px] font-mono text-zinc-600 uppercase tracking-widest mb-4">Botões</p>
+  <div class="ds-row mb-12 items-center">
+    <!-- CTA primário -->
+    <a class="group bg-orange-600 hover:bg-orange-500 text-white text-xs font-mono uppercase tracking-widest px-8 py-4 transition-all flex items-center gap-3 font-medium shadow-[0_0_20px_rgba(234,88,12,0.3)] hover:shadow-[0_0_40px_rgba(234,88,12,0.6)] relative overflow-hidden" href="#">
+      Participar de um Culto
+      <iconify-icon class="group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform" icon="solar:plain-2-linear" width="16"></iconify-icon>
+    </a>
+    <!-- ghost -->
+    <a class="group bg-transparent border border-zinc-700 hover:border-white text-zinc-400 hover:text-white text-xs font-mono uppercase tracking-widest px-8 py-4 transition-all flex items-center gap-3 font-medium" href="#">
+      Conheça o Ministério
+      <iconify-icon icon="solar:arrow-down-linear" width="16"></iconify-icon>
+    </a>
+    <!-- pequeno -->
+    <button class="flip-btn bg-zinc-100 hover:bg-white text-black text-[10px] font-mono uppercase tracking-widest px-4 py-2 transition-all font-medium flex items-center gap-2">
+      Detalhes <iconify-icon icon="solar:info-circle-linear"></iconify-icon>
+    </button>
+    <!-- full orange inline link -->
+    <a class="inline-flex items-center gap-2 bg-orange-600 hover:bg-orange-500 text-white text-[10px] font-mono uppercase tracking-widest px-6 py-3 transition-all" href="#">
+      <iconify-icon icon="solar:chat-dots-linear" width="14"></iconify-icon>WhatsApp
+    </a>
+  </div>
+
+  <!-- SPOTLIGHT CARDS (PILARES) -->
+  <p class="text-[10px] font-mono text-zinc-600 uppercase tracking-widest mb-4">Spotlight Card — Pilares (grid 4 col)</p>
+  <div class="grid grid-cols-2 lg:grid-cols-4 relative spotlight-grid mb-2">
+    <div class="group relative border-zinc-800 border-r border-b lg:border-b-0 min-h-[240px] flex flex-col z-10 bg-[#050505]/50 card-item spotlight-card">
+      <div class="p-8 h-full flex flex-col justify-between relative z-10">
+        <div class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+        <div>
+          <div class="flex justify-between items-start mb-6">
+            <span class="text-[10px] font-mono text-zinc-600 border border-zinc-800 px-2 py-1 group-hover:border-orange-600/50 group-hover:text-orange-600 group-hover:shadow-[0_0_15px_rgba(234,88,12,0.4)] transition-all duration-300 bg-[#050505]">PIL. 01</span>
+            <iconify-icon class="text-zinc-400 group-hover:text-white transition-colors" icon="solar:home-heart-linear" width="24"></iconify-icon>
+          </div>
+          <h3 class="text-lg font-medium text-white uppercase tracking-tight mb-3 group-hover:text-orange-500 transition-colors">Presença</h3>
+          <p class="text-xs text-zinc-500 font-mono group-hover:text-zinc-400 transition-colors leading-relaxed">Buscamos a presença manifesta de Deus.</p>
+        </div>
+      </div>
+    </div>
+    <div class="group relative border-zinc-800 border-r border-b lg:border-b-0 min-h-[240px] flex flex-col z-10 bg-[#050505]/50 card-item spotlight-card">
+      <div class="p-8 h-full flex flex-col justify-between relative z-10">
+        <div>
+          <div class="flex justify-between items-start mb-6">
+            <span class="text-[10px] font-mono text-zinc-600 border border-zinc-800 px-2 py-1 bg-[#050505]">PIL. 02</span>
+            <iconify-icon class="text-zinc-400" icon="solar:microphone-3-linear" width="24"></iconify-icon>
+          </div>
+          <h3 class="text-lg font-medium text-white uppercase tracking-tight mb-3">Profecia</h3>
+          <p class="text-xs text-zinc-500 font-mono leading-relaxed">A palavra profética que desperta.</p>
+        </div>
+      </div>
+    </div>
+    <div class="group relative border-zinc-800 border-r min-h-[240px] flex flex-col z-10 bg-[#050505]/50 card-item spotlight-card">
+      <div class="p-8 h-full flex flex-col justify-between relative z-10">
+        <div>
+          <div class="flex justify-between items-start mb-6">
+            <span class="text-[10px] font-mono text-zinc-600 border border-zinc-800 px-2 py-1 bg-[#050505]">PIL. 03</span>
+            <iconify-icon class="text-zinc-400" icon="solar:flag-bold-duotone" width="24"></iconify-icon>
+          </div>
+          <h3 class="text-lg font-medium text-white uppercase tracking-tight mb-3">Conquista</h3>
+          <p class="text-xs text-zinc-500 font-mono leading-relaxed">Avançamos em fé para reconquistar vidas.</p>
+        </div>
+      </div>
+    </div>
+    <div class="group relative border-zinc-800 min-h-[240px] flex flex-col z-10 bg-[#050505]/50 card-item spotlight-card">
+      <div class="p-8 h-full flex flex-col justify-between relative z-10">
+        <div>
+          <div class="flex justify-between items-start mb-6">
+            <span class="text-[10px] font-mono text-zinc-600 border border-zinc-800 px-2 py-1 bg-[#050505]">PIL. 04</span>
+            <iconify-icon class="text-zinc-400" icon="solar:book-minimalistic-linear" width="24"></iconify-icon>
+          </div>
+          <h3 class="text-lg font-medium text-white uppercase tracking-tight mb-3">Palavra</h3>
+          <p class="text-xs text-zinc-500 font-mono leading-relaxed">A Escritura como fundamento de tudo.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="text-[9px] font-mono text-zinc-600 mb-12">Classes: <code class="text-zinc-500">spotlight-grid > spotlight-card card-item</code> · JS: <code class="text-zinc-500">#specs-grid mousemove → --mouse-x / --mouse-y</code></p>
+
+  <!-- FLIP CARD (CULTO) -->
+  <p class="text-[10px] font-mono text-zinc-600 uppercase tracking-widest mb-4">Flip Card — Cultos (3D rotate)</p>
+  <div class="flex gap-6 flex-wrap mb-2">
+    <div class="group perspective-1000 relative h-80 w-72 select-card">
+      <div class="relative w-full h-full duration-500 preserve-3d transition-transform card-inner cursor-pointer rounded-2xl">
+        <div class="absolute inset-0 backface-hidden bg-[#080808] border border-zinc-800 rounded-2xl p-6 flex flex-col shadow-2xl overflow-hidden group-hover:border-zinc-500 transition-all">
+          <div class="inner-sheen absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div class="flex flex-col flex-1 z-10 justify-between">
+            <div>
+              <div class="flex gap-2 mb-3">
+                <span class="px-2 py-0.5 border border-zinc-800 bg-zinc-900/50 rounded text-[9px] font-mono text-zinc-400 uppercase">Família</span>
+              </div>
+              <h3 class="text-xl font-medium text-white uppercase tracking-tight mb-1 group-hover:text-orange-500 transition-colors">Domingo <span class="text-zinc-600">18h30</span></h3>
+              <p class="text-xs font-mono text-zinc-500">Culto da Família</p>
+            </div>
+            <div class="flex items-end justify-between">
+              <div><div class="text-[9px] font-mono text-zinc-500 uppercase mb-1">Recorrência</div><div class="text-base text-white font-medium">Toda semana</div></div>
+              <button class="flip-btn bg-zinc-100 hover:bg-white text-black text-[10px] font-mono uppercase tracking-widest px-3 py-2 rounded-sm font-medium flex items-center gap-1">Info <iconify-icon icon="solar:info-circle-linear"></iconify-icon></button>
+            </div>
+          </div>
+        </div>
+        <div class="absolute inset-0 backface-hidden rotate-y-180 bg-zinc-900 border border-zinc-700 rounded-2xl p-6 flex flex-col">
+          <div class="flex justify-between items-start mb-4">
+            <h4 class="text-sm font-medium text-white uppercase">Por que participar?</h4>
+            <button class="unflip-btn text-zinc-500 hover:text-white"><iconify-icon icon="solar:close-circle-linear" width="18"></iconify-icon></button>
+          </div>
+          <ul class="space-y-3 flex-1">
+            <li class="flex gap-2"><iconify-icon class="text-orange-600 min-w-[14px]" icon="solar:check-circle-bold" width="14"></iconify-icon><span class="text-[11px] text-zinc-300 font-mono leading-relaxed">Palavra ungida para toda a família.</span></li>
+            <li class="flex gap-2"><iconify-icon class="text-orange-600 min-w-[14px]" icon="solar:check-circle-bold" width="14"></iconify-icon><span class="text-[11px] text-zinc-300 font-mono leading-relaxed">Adoração que conduz à presença.</span></li>
+          </ul>
+          <a class="w-full bg-orange-600 hover:bg-orange-500 text-white py-2.5 text-[10px] font-mono uppercase tracking-widest text-center block mt-4 transition-all" href="#">Confirmar Presença</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="text-[9px] font-mono text-zinc-600 mb-12">Classes: <code class="text-zinc-500">select-card > card-inner preserve-3d backface-hidden</code> · <code class="text-zinc-500">.is-flipped</code> via JS <code class="text-zinc-500">flip-btn / unflip-btn</code></p>
+
+  <!-- TELEMETRY CARDS -->
+  <p class="text-[10px] font-mono text-zinc-600 uppercase tracking-widest mb-4">Telemetry Card — Hero stats</p>
+  <div class="ds-row mb-2 items-start">
+    <div class="w-64 bg-[#050505]/90 backdrop-blur-sm border border-zinc-800 p-5 border-l-2 border-l-orange-600">
+      <div class="flex justify-between items-center mb-3 border-b border-zinc-800 pb-2">
+        <span class="text-[9px] font-mono text-zinc-500 uppercase tracking-widest">Palavra_Âncora</span>
+        <iconify-icon class="text-orange-600 animate-pulse" icon="solar:book-bookmark-linear"></iconify-icon>
+      </div>
+      <div class="space-y-1">
+        <div class="flex justify-between text-[10px] font-mono text-zinc-400"><span>REF: <span class="text-zinc-300">Joel 3:16</span></span><span class="text-orange-500">ATIVO</span></div>
+        <div class="flex justify-between text-[10px] font-mono text-zinc-400"><span>REF: <span class="text-zinc-300">Ap 5:5</span></span><span class="text-orange-500">ATIVO</span></div>
+      </div>
+    </div>
+    <div class="w-72 bg-[#080808]/95 backdrop-blur-sm border border-zinc-800 p-6 shadow-2xl hover:border-orange-600/50 transition-colors relative">
+      <div class="absolute -left-px top-6 bottom-6 w-0.5 bg-orange-600"></div>
+      <div class="flex justify-between items-start mb-4">
+        <div><div class="text-[10px] font-mono text-zinc-500 uppercase tracking-widest mb-1">Presença_Manifesta</div><div class="text-3xl font-medium text-white">100%</div></div>
+        <div class="h-8 w-8 bg-orange-600/10 border border-orange-600/20 flex items-center justify-center"><iconify-icon class="text-orange-600" icon="solar:fire-linear"></iconify-icon></div>
+      </div>
+      <div class="w-full bg-zinc-900 h-1"><div class="bg-orange-600 h-full w-full relative"><div class="absolute right-0 top-1/2 -translate-y-1/2 w-1 h-2 bg-white animate-pulse"></div></div></div>
+    </div>
+  </div>
+  <p class="text-[9px] font-mono text-zinc-600 mb-12">Classe: <code class="text-zinc-500">telemetry-card</code> · <code class="text-zinc-500">data-depth="0.1|0.2"</code> para parallax 3D no hero</p>
+
+  <!-- INPUTS -->
+  <p class="text-[10px] font-mono text-zinc-600 uppercase tracking-widest mb-4">Form Inputs</p>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-xl mb-12">
+    <div>
+      <label class="block text-[9px] font-mono text-zinc-500 uppercase tracking-widest mb-2">Nome</label>
+      <input class="w-full bg-zinc-900/50 border border-zinc-800 text-white text-xs font-mono px-4 py-3 focus:outline-none focus:border-orange-600 transition-colors placeholder-zinc-600" placeholder="Seu nome" type="text"/>
+    </div>
+    <div>
+      <label class="block text-[9px] font-mono text-zinc-500 uppercase tracking-widest mb-2">E-mail</label>
+      <input class="w-full bg-zinc-900/50 border border-zinc-800 text-white text-xs font-mono px-4 py-3 focus:outline-none focus:border-orange-600 transition-colors placeholder-zinc-600" placeholder="seu@email.com" type="email"/>
+    </div>
+    <div class="md:col-span-2">
+      <label class="block text-[9px] font-mono text-zinc-500 uppercase tracking-widest mb-2">Mensagem</label>
+      <textarea class="w-full bg-zinc-900/50 border border-zinc-800 text-white text-xs font-mono px-4 py-3 focus:outline-none focus:border-orange-600 transition-colors placeholder-zinc-600 resize-none" placeholder="Como podemos orar por você?" rows="3"></textarea>
+    </div>
+  </div>
+
+  <!-- ICONS -->
+  <p class="text-[10px] font-mono text-zinc-600 uppercase tracking-widest mb-4">Ícones — Iconify Solar Set</p>
+  <div class="ds-row mb-2">
+    <div class="flex flex-col items-center gap-2 w-16"><iconify-icon class="text-zinc-400" icon="solar:home-heart-linear" width="24"></iconify-icon><span class="text-[8px] font-mono text-zinc-600 text-center">home-heart</span></div>
+    <div class="flex flex-col items-center gap-2 w-16"><iconify-icon class="text-zinc-400" icon="solar:microphone-3-linear" width="24"></iconify-icon><span class="text-[8px] font-mono text-zinc-600 text-center">microphone-3</span></div>
+    <div class="flex flex-col items-center gap-2 w-16"><iconify-icon class="text-zinc-400" icon="solar:flag-bold-duotone" width="24"></iconify-icon><span class="text-[8px] font-mono text-zinc-600 text-center">flag</span></div>
+    <div class="flex flex-col items-center gap-2 w-16"><iconify-icon class="text-zinc-400" icon="solar:book-minimalistic-linear" width="24"></iconify-icon><span class="text-[8px] font-mono text-zinc-600 text-center">book</span></div>
+    <div class="flex flex-col items-center gap-2 w-16"><iconify-icon class="text-zinc-400" icon="solar:fire-linear" width="24"></iconify-icon><span class="text-[8px] font-mono text-zinc-600 text-center">fire</span></div>
+    <div class="flex flex-col items-center gap-2 w-16"><iconify-icon class="text-zinc-400" icon="solar:shield-bold-duotone" width="24"></iconify-icon><span class="text-[8px] font-mono text-zinc-600 text-center">shield</span></div>
+    <div class="flex flex-col items-center gap-2 w-16"><iconify-icon class="text-zinc-400" icon="solar:users-group-rounded-linear" width="24"></iconify-icon><span class="text-[8px] font-mono text-zinc-600 text-center">users-group</span></div>
+    <div class="flex flex-col items-center gap-2 w-16"><iconify-icon class="text-zinc-400" icon="solar:clock-circle-linear" width="24"></iconify-icon><span class="text-[8px] font-mono text-zinc-600 text-center">clock</span></div>
+    <div class="flex flex-col items-center gap-2 w-16"><iconify-icon class="text-zinc-400" icon="solar:map-point-linear" width="24"></iconify-icon><span class="text-[8px] font-mono text-zinc-600 text-center">map-point</span></div>
+    <div class="flex flex-col items-center gap-2 w-16"><iconify-icon class="text-zinc-400" icon="solar:instagram-linear" width="24"></iconify-icon><span class="text-[8px] font-mono text-zinc-600 text-center">instagram</span></div>
+    <div class="flex flex-col items-center gap-2 w-16"><iconify-icon class="text-zinc-400" icon="solar:chat-dots-linear" width="24"></iconify-icon><span class="text-[8px] font-mono text-zinc-600 text-center">chat-dots</span></div>
+    <div class="flex flex-col items-center gap-2 w-16"><iconify-icon class="text-zinc-400" icon="solar:plain-2-linear" width="24"></iconify-icon><span class="text-[8px] font-mono text-zinc-600 text-center">plain-2</span></div>
+    <div class="flex flex-col items-center gap-2 w-16"><iconify-icon class="text-zinc-400" icon="solar:arrow-right-linear" width="24"></iconify-icon><span class="text-[8px] font-mono text-zinc-600 text-center">arrow-right</span></div>
+    <div class="flex flex-col items-center gap-2 w-16"><iconify-icon class="text-zinc-400" icon="solar:book-bookmark-linear" width="24"></iconify-icon><span class="text-[8px] font-mono text-zinc-600 text-center">book-bookmark</span></div>
+    <div class="flex flex-col items-center gap-2 w-16"><iconify-icon class="text-zinc-400" icon="solar:eye-linear" width="24"></iconify-icon><span class="text-[8px] font-mono text-zinc-600 text-center">eye</span></div>
+  </div>
+  <p class="text-[9px] font-mono text-zinc-600 mb-4">Sintaxe: <code class="text-zinc-500">&lt;iconify-icon icon="solar:NOME-linear" width="24"&gt;&lt;/iconify-icon&gt;</code></p>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     04. LAYOUT
+═══════════════════════════════════════════════════════ -->
+<section class="ds-section" id="layout">
+  <p class="ds-label">04 // Layout</p>
+  <h2 class="ds-title">Estrutura de Página</h2>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+    <div>
+      <p class="text-[10px] font-mono text-zinc-600 uppercase tracking-widest mb-4">Estrutura geral</p>
+      <div class="border border-zinc-800 font-mono text-[10px] leading-6 p-4 space-y-1 bg-[#080808]">
+        <p class="text-orange-600">&lt;html bg-[#050505] scroll-smooth&gt;</p>
+        <p class="pl-4 text-zinc-500">bg-grid (fixed, z-0, opacity-[0.03])</p>
+        <p class="pl-4 text-zinc-400">&lt;header sticky top-0 z-50 h-16&gt;</p>
+        <p class="pl-4 text-zinc-400">&lt;main flex flex-col md:flex-row&gt;</p>
+        <p class="pl-8 text-zinc-600">&lt;aside w-16 border-r&gt; — sidebar numérica</p>
+        <p class="pl-8 text-zinc-600">&lt;div flex-1 flex flex-col&gt; — conteúdo</p>
+        <p class="pl-12 text-zinc-600">#hero · #specs · #selector</p>
+        <p class="pl-12 text-zinc-600">#vision · #neural · #missions</p>
+        <p class="pl-12 text-zinc-600">&lt;footer&gt;</p>
+        <p class="pl-4 text-orange-600">&lt;script interactions.js&gt;</p>
+      </div>
+    </div>
+    <div>
+      <p class="text-[10px] font-mono text-zinc-600 uppercase tracking-widest mb-4">Seção padrão — header interno</p>
+      <div class="border border-zinc-800 bg-[#080808] p-6 relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-orange-600/80 to-transparent"></div>
+        <p class="text-[10px] font-mono text-orange-600 uppercase tracking-widest flex items-center gap-2 mb-3">
+          <span class="w-1.5 h-1.5 bg-orange-600 animate-pulse"></span>// Nome_da_Seção
+        </p>
+        <h3 class="text-3xl font-medium text-white uppercase tracking-tight mb-2">Título <span class="text-zinc-600">Secundário</span></h3>
+        <p class="text-xs font-mono text-zinc-500">Subtexto descritivo da seção.</p>
+        <p class="text-[9px] font-mono text-zinc-700 mt-4">pt-36 pr-8 pb-28 pl-8 md:px-12 border-b border-zinc-800</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sidebar visual -->
+  <p class="text-[10px] font-mono text-zinc-600 uppercase tracking-widest mb-4">Sidebar de Navegação</p>
+  <div class="flex gap-6 mb-12 items-start">
+    <div class="flex flex-col w-16 border border-zinc-800 bg-[#050505] items-center py-8 gap-6">
+      <div class="w-px h-8 bg-zinc-900"></div>
+      <a class="flex items-center justify-center w-6 h-6 bg-[#050505] border border-orange-600 text-orange-600 text-[9px] font-mono">01</a>
+      <a class="flex items-center justify-center w-6 h-6 bg-[#050505] border border-zinc-800 text-zinc-600 text-[9px] font-mono hover:border-orange-600 hover:text-white transition-all">02</a>
+      <a class="flex items-center justify-center w-6 h-6 bg-[#050505] border border-zinc-800 text-zinc-600 text-[9px] font-mono hover:border-orange-600 hover:text-white transition-all">03</a>
+      <div class="w-px h-8 bg-gradient-to-b from-zinc-800 to-transparent"></div>
+      <div class="text-[8px] font-mono text-zinc-700 -rotate-90 whitespace-nowrap tracking-widest uppercase">IPRS_v1.0</div>
+    </div>
+    <div class="flex-1">
+      <p class="text-[9px] font-mono text-zinc-600 leading-6">
+        Ativo: <code class="text-zinc-500">border-orange-600 text-orange-600</code><br/>
+        Inativo: <code class="text-zinc-500">border-zinc-800 text-zinc-600</code><br/>
+        Hover: <code class="text-zinc-500">border-orange-600 text-white</code><br/>
+        JS: scroll listener atualiza via <code class="text-zinc-500">.nav-link</code>
+      </p>
+    </div>
+  </div>
+
+  <!-- Tab switcher -->
+  <p class="text-[10px] font-mono text-zinc-600 uppercase tracking-widest mb-4">Tab Switcher — Ministério / Contato</p>
+  <div class="grid grid-cols-12 border border-zinc-800 max-w-3xl mb-2">
+    <div class="col-span-4 flex flex-col border-r border-zinc-800">
+      <button class="text-left bg-zinc-900/30 border-b border-zinc-800 border-l-2 border-l-orange-600 p-5">
+        <div class="text-[9px] font-mono text-orange-600 uppercase tracking-wider mb-1">CULTO</div>
+        <div class="text-sm font-medium text-white uppercase">Culto no Monte</div>
+        <div class="mt-2 inline-flex items-center px-2 py-1 bg-zinc-900 border border-zinc-800 text-[9px] font-mono text-orange-500">ATIVO</div>
+      </button>
+      <button class="text-left border-b border-zinc-800 border-l-2 border-transparent p-5 hover:bg-zinc-900/20 transition-colors">
+        <div class="text-[9px] font-mono text-zinc-500 uppercase tracking-wider mb-1">COMUNIDADE</div>
+        <div class="text-sm font-medium text-zinc-400 uppercase">Discipulado</div>
+      </button>
+    </div>
+    <div class="col-span-8 bg-[#080808] p-6 flex flex-col justify-center relative">
+      <h3 class="text-xl font-medium text-white uppercase tracking-tight mb-2">Culto no Monte</h3>
+      <p class="text-xs font-mono text-zinc-500 leading-relaxed">Panel content — <code class="text-zinc-600">scenario-panel</code> com <code class="text-zinc-600">opacity-0 translate-x-4</code> para inativo.</p>
+    </div>
+  </div>
+  <p class="text-[9px] font-mono text-zinc-600 mb-4">JS: <code class="text-zinc-500">window.switchTab(index)</code> · <code class="text-zinc-500">window.switchContactTab(index)</code></p>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     05. IMAGENS
+═══════════════════════════════════════════════════════ -->
+<section class="ds-section" id="images">
+  <p class="ds-label">05 // Imagens</p>
+  <h2 class="ds-title">Biblioteca de Imagens</h2>
+
+  <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-4">
+
+    <div class="flex flex-col gap-2">
+      <div class="border border-zinc-800 bg-zinc-900 aspect-square flex items-center justify-center overflow-hidden">
+        <img alt="logo" class="h-16 w-auto drop-shadow-[0_0_12px_rgba(234,88,12,0.6)]" src="images/logo/logo.png"/>
+      </div>
+      <div class="ds-chip">images/logo/logo.png</div>
+      <span class="text-[9px] font-mono text-zinc-600">Logo principal · uso: header, footer, hero, favicon</span>
+    </div>
+
+    <div class="flex flex-col gap-2">
+      <div class="border border-zinc-800 bg-zinc-900 aspect-square overflow-hidden">
+        <img alt="hero-lion" class="w-full h-full object-cover opacity-60 mix-blend-luminosity" src="images/hero/hero-lion.jpg"/>
+      </div>
+      <div class="ds-chip">images/hero/hero-lion.jpg</div>
+      <span class="text-[9px] font-mono text-zinc-600">Leão hero · mix-blend-luminosity opacity-60</span>
+    </div>
+
+    <div class="flex flex-col gap-2">
+      <div class="border border-zinc-800 bg-zinc-900 aspect-square overflow-hidden">
+        <img alt="pastor" class="w-full h-full object-cover object-top opacity-50 mix-blend-luminosity" src="images/leadership/pastor.png"/>
+      </div>
+      <div class="ds-chip">images/leadership/pastor.png</div>
+      <span class="text-[9px] font-mono text-zinc-600">Pr. Fabrício · seção Liderança</span>
+    </div>
+
+    <div class="flex flex-col gap-2">
+      <div class="border border-zinc-800 bg-zinc-900 aspect-square overflow-hidden">
+        <img alt="pastora" class="w-full h-full object-cover object-top opacity-50 mix-blend-luminosity" src="images/leadership/pastora.png"/>
+      </div>
+      <div class="ds-chip">images/leadership/pastora.png</div>
+      <span class="text-[9px] font-mono text-zinc-600">Pra. Priscila · seção Liderança</span>
+    </div>
+
+    <div class="flex flex-col gap-2">
+      <div class="border border-zinc-800 bg-zinc-900 aspect-square overflow-hidden">
+        <img alt="conexao" class="w-full h-full object-cover opacity-50 mix-blend-luminosity" src="images/ministry/conexao.jpg"/>
+      </div>
+      <div class="ds-chip">images/ministry/conexao.jpg</div>
+      <span class="text-[9px] font-mono text-zinc-600">Comunidade / Culto da Família</span>
+    </div>
+
+    <div class="flex flex-col gap-2">
+      <div class="border border-zinc-800 bg-zinc-900 aspect-square overflow-hidden">
+        <img alt="lion-cross" class="w-full h-full object-cover opacity-50 mix-blend-luminosity" src="images/ministry/lion-cross.png"/>
+      </div>
+      <div class="ds-chip">images/ministry/lion-cross.png</div>
+      <span class="text-[9px] font-mono text-zinc-600">Leão + Cruz · Conquista / Vigília</span>
+    </div>
+
+    <div class="flex flex-col gap-2">
+      <div class="border border-zinc-800 bg-zinc-900 aspect-square overflow-hidden">
+        <img alt="foto-igreja" class="w-full h-full object-cover opacity-50 mix-blend-luminosity" src="images/ministry/foto-igreja.png"/>
+      </div>
+      <div class="ds-chip">images/ministry/foto-igreja.png</div>
+      <span class="text-[9px] font-mono text-zinc-600">Foto da igreja · uso geral</span>
+    </div>
+
+    <div class="flex flex-col gap-2">
+      <div class="border border-zinc-800 bg-zinc-900 aspect-square overflow-hidden">
+        <img alt="generated-01" class="w-full h-full object-cover opacity-50 mix-blend-luminosity" src="images/generated/generated-01.png"/>
+      </div>
+      <div class="ds-chip">images/generated/generated-01.png</div>
+      <span class="text-[9px] font-mono text-zinc-600">Imagem gerada · cultos / ministério</span>
+    </div>
+
+    <div class="flex flex-col gap-2">
+      <div class="border border-zinc-800 bg-zinc-900 aspect-square overflow-hidden">
+        <img alt="parede-fundo" class="w-full h-full object-cover opacity-30 mix-blend-luminosity" src="images/backgrounds/parede-fundo.jpg"/>
+      </div>
+      <div class="ds-chip">images/backgrounds/parede-fundo.jpg</div>
+      <span class="text-[9px] font-mono text-zinc-600">Textura de fundo · uso como overlay</span>
+    </div>
+
+  </div>
+  <p class="text-[9px] font-mono text-zinc-600">Padrão de uso: <code class="text-zinc-500">opacity-20 to 60 + mix-blend-luminosity</code> para integrar com bg-[#050505]</p>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     06. MOTION
+═══════════════════════════════════════════════════════ -->
+<section class="ds-section" id="motion">
+  <p class="ds-label">06 // Motion</p>
+  <h2 class="ds-title">Animações & Interações</h2>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+    <div>
+      <p class="text-[10px] font-mono text-zinc-600 uppercase tracking-widest mb-6">Scroll Reveal — IntersectionObserver</p>
+      <div class="space-y-4 border border-zinc-800 bg-[#080808] p-6">
+        <div class="sys-reveal sys-rise sys-active text-sm font-mono text-zinc-300 border-l-2 border-orange-600 pl-3 py-1">sys-reveal sys-rise sys-active → visível de imediato</div>
+        <div class="sys-reveal sys-rise sys-delay-100 sys-active text-sm font-mono text-zinc-300 border-l-2 border-zinc-800 pl-3 py-1">+ sys-delay-100 → 160ms</div>
+        <div class="sys-reveal sys-rise sys-delay-200 sys-active text-sm font-mono text-zinc-300 border-l-2 border-zinc-800 pl-3 py-1">+ sys-delay-200 → 320ms</div>
+        <div class="sys-reveal sys-rise sys-delay-300 sys-active text-sm font-mono text-zinc-300 border-l-2 border-zinc-800 pl-3 py-1">+ sys-delay-300 → 480ms</div>
+      </div>
+      <p class="text-[9px] font-mono text-zinc-600 mt-3">Sem <code class="text-zinc-500">sys-active</code>: opacity:0, translateY(34px), blur(4px). JS adiciona <code class="text-zinc-500">sys-active</code> ao entrar na viewport.</p>
+    </div>
+    <div>
+      <p class="text-[10px] font-mono text-zinc-600 uppercase tracking-widest mb-6">Animações CSS (components.css)</p>
+      <div class="space-y-4">
+        <div class="border border-zinc-800 bg-[#080808] p-4 flex items-center gap-4">
+          <span class="relative flex h-2.5 w-2.5"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-500 opacity-75"></span><span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-orange-500"></span></span>
+          <span class="text-xs font-mono text-zinc-400">animate-ping — status badges</span>
+        </div>
+        <div class="border border-zinc-800 bg-[#080808] p-4 flex items-center gap-4">
+          <div class="w-full bg-zinc-900 h-1 relative"><div class="bg-orange-600 h-full w-3/4 relative"><div class="absolute right-0 top-1/2 -translate-y-1/2 w-1 h-2 bg-white animate-pulse"></div></div></div>
+          <span class="text-xs font-mono text-zinc-400">animate-pulse — progress bar tip</span>
+        </div>
+        <div class="border border-zinc-800 bg-[#080808] p-4 flex items-center gap-4">
+          <iconify-icon class="text-orange-600 animate-pulse" icon="solar:book-bookmark-linear" width="20"></iconify-icon>
+          <span class="text-xs font-mono text-zinc-400">animate-pulse — ícones de status</span>
+        </div>
+        <div class="border border-zinc-800 bg-[#080808] p-4 overflow-hidden relative h-8">
+          <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-orange-600/80 to-transparent animate-[shimmer_4s_infinite]"></div>
+          <span class="text-xs font-mono text-zinc-400">shimmer — linha topo das seções</span>
+        </div>
+        <div class="border border-zinc-800 bg-[#080808] p-4 flex items-center gap-4 relative overflow-hidden group cursor-crosshair">
+          <div class="absolute top-0 left-0 w-full h-[1px] bg-orange-500 shadow-[0_0_20px_rgba(234,88,12,1)] opacity-0 group-hover:opacity-100 animate-scan pointer-events-none"></div>
+          <span class="text-xs font-mono text-zinc-400">animate-scan — scan de cima pra baixo (hover)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Efeito glitch text -->
+  <p class="text-[10px] font-mono text-zinc-600 uppercase tracking-widest mb-4">Glitch Text — JS decode animation</p>
+  <div class="border border-zinc-800 bg-[#080808] p-8 mb-2">
+    <span class="text-4xl font-medium text-zinc-600 uppercase tracking-tight glitch-text" data-text="de Siao">de Sião</span>
+    <p class="text-[9px] font-mono text-zinc-600 mt-4">Sintaxe: <code class="text-zinc-500">&lt;span class="glitch-text" data-text="VALUE"&gt;VALUE&lt;/span&gt;</code><br/>JS embaralha caracteres ao carregar e no mouseover</p>
+  </div>
+
+  <!-- Hero spotlight -->
+  <p class="text-[10px] font-mono text-zinc-600 uppercase tracking-widest mb-4 mt-8">Hero Spotlight + Parallax 3D</p>
+  <div class="border border-zinc-800 bg-[#080808] p-6 font-mono text-[10px] text-zinc-500 leading-6">
+    <p><span class="text-orange-600">mousemove</span> no <code>#hero</code> →</p>
+    <p class="pl-4">→ <code>#hero-spotlight</code>: radial-gradient orange 0.25 opacity seguindo cursor</p>
+    <p class="pl-4">→ <code>#hero-spotlight-core</code>: radial-gradient white 0.08 overlay</p>
+    <p class="pl-4">→ <code>#hero-bg-video</code>: scale(1.05) + translate (±15px, parallax)</p>
+    <p class="pl-4">→ <code>.telemetry-card[data-depth]</code>: rotateX/Y + translate 3D por depth</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     FOOTER DS
+═══════════════════════════════════════════════════════ -->
+<footer class="border-t border-zinc-800 bg-[#080808] px-8 py-6 flex items-center justify-between text-[10px] font-mono uppercase tracking-wider text-zinc-600">
+  <div class="flex items-center gap-3">
+    <img alt="IPRS" class="h-5 w-auto opacity-40" src="images/logo/logo.png"/>
+    <span>IPRS Design System v1.0 · <span id="ds-year"></span></span>
+  </div>
+  <a class="text-zinc-600 hover:text-white transition-colors" href="index.html">← Voltar ao site</a>
+</footer>
+
+<script src="assets/js/interactions.js"></script>
+<script>
+  document.getElementById('ds-year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
