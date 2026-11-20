@@ -23,7 +23,7 @@ if errorlevel 1 (
 )
 
 echo [3/3] Atualizando no servidor...
-ssh root@136.0.53.2 "cd /opt/rugidodesiao && git pull && echo DEPLOY_OK"
+ssh root@136.0.53.2 "cd /opt/rugidodesiao && git fetch origin && git reset --hard FETCH_HEAD && echo DEPLOY_OK"
 
 if errorlevel 1 (
     echo ERRO: Falha no deploy da VPS.
